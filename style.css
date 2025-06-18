@@ -129,5 +129,174 @@ h3 {
     margin-bottom: 8px;
 }
 
+.sobre blockquote {
+    background-color: #e8f5e9;
+    border-left: 5px solid #2e7d32;
+    margin: 20px 0;
+    padding: 15px 20px;
+    font-style: italic;
+    color: #4CAF50;
+}
+
+.sobre blockquote em {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
 /* Seção Contato */
-.cont
+.contato {
+    background-color: white;
+    padding: 40px 0;
+}
+
+.contato h2 {
+    margin-bottom: 30px;
+}
+
+.contato form {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.contato label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.contato input[type="text"],
+.contato input[type="email"],
+.contato textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.contato input[type="text"]:focus,
+.contato input[type="email"]:focus,
+.contato textarea:focus {
+    border-color: #2e7d32;
+    outline: none;
+}
+
+.contato textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contato button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.contato button:hover {
+    background-color: #1b5e20;
+    transform: translateY(-2px);
+}
+
+.info-contato {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.info-contato h3 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.info-contato p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.info-contato a {
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.info-contato a:hover {
+    color: #1b5e20;
+    text-decoration: underline;
+}
+
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9em;
+    border-top: 5px solid #2e7d32;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+footer a {
+    color: #a5d6a7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+}
