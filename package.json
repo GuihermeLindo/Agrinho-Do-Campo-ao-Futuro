@@ -1,0 +1,9 @@
+{
+  "name": "do-campo-ao-futuro",
+  "version": "1.0.0",
+  "description": "Projeto educacional Agrinho - Do Campo ao Futuro",
+  "scripts": {
+    "dev": "npx serve -l 3000",
+    "start": "npx serve -l 3000"
+  }
+}

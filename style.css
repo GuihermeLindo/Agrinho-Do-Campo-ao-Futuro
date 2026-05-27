@@ -1,0 +1,687 @@
+/* ==========================================================================
+   DO CAMPO AO FUTURO - Design System
+   Estilo: Minimalista, Moderno e Acolhedor
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Google Fonts - Tipografia Premium
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. VARIÁVEIS CSS (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Cores Principais */
+  --color-primary: #4a7c59;        /* Verde oliva suave */
+  --color-primary-dark: #3a6147;   /* Verde oliva escuro */
+  --color-primary-light: #e8f0ea;  /* Verde muito claro */
+  
+  /* Cores de Fundo */
+  --color-bg: #fafaf8;             /* Branco cremoso */
+  --color-bg-warm: #f5f3ef;        /* Bege quente */
+  --color-bg-card: #ffffff;        /* Branco puro para cards */
+  
+  /* Cores de Texto */
+  --color-text: #2d3436;           /* Cinza escuro quente */
+  --color-text-soft: #636e72;      /* Cinza médio */
+  --color-text-muted: #9ca3af;     /* Cinza claro */
+  
+  /* Cores de Acento */
+  --color-accent: #c9a959;         /* Dourado terra */
+  --color-accent-soft: #f6f0e0;    /* Dourado muito claro */
+  
+  /* Bordas e Sombras */
+  --color-border: #e5e7eb;
+  --color-border-soft: #f0f0ed;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 2px 20px rgba(74, 124, 89, 0.08);
+  
+  /* Tipografia */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Espaçamentos */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
+  
+  /* Bordas arredondadas */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 50px;
+  
+  /* Transições */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET E BASE
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+/* --------------------------------------------------------------------------
+   3. CONTAINER
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* --------------------------------------------------------------------------
+   4. TIPOGRAFIA
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(1.5rem, 4vw, 1.75rem); }
+h2 { font-size: clamp(1.75rem, 5vw, 2.25rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+
+p {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   5. LINKS
+   -------------------------------------------------------------------------- */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* --------------------------------------------------------------------------
+   6. HEADER (CABEÇALHO)
+   -------------------------------------------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 250, 248, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  gap: var(--spacing-md);
+}
+
+header h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+header h1::before {
+  content: "🌱";
+  font-size: 1.25rem;
+}
+
+/* Navegação */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-xs);
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+nav ul li a:hover {
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+/* --------------------------------------------------------------------------
+   7. HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  padding: var(--spacing-2xl) 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg) 0%,
+    var(--color-primary-light) 50%,
+    var(--color-accent-soft) 100%
+  );
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Decoração sutil */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--color-primary-light) 0%, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--color-accent-soft) 0%, transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-md);
+  font-weight: 700;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+  color: var(--color-text-soft);
+  line-height: 1.8;
+}
+
+/* --------------------------------------------------------------------------
+   8. BOTÕES
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft), 0 4px 15px rgba(74, 124, 89, 0.25);
+  transition: all var(--transition-normal);
+}
+
+.btn:hover {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg), 0 8px 25px rgba(74, 124, 89, 0.3);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   9. SEÇÃO SOBRE / CONTEÚDO
+   -------------------------------------------------------------------------- */
+.sobre,
+.contato {
+  padding: var(--spacing-2xl) 0;
+}
+
+.sobre h2,
+.contato h2 {
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary-dark);
+}
+
+.sobre h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 2px;
+  margin-top: var(--spacing-sm);
+}
+
+.sobre h3 {
+  color: var(--color-primary);
+  margin: var(--spacing-xl) 0 var(--spacing-md);
+  font-weight: 600;
+}
+
+/* Listas elegantes */
+.sobre ul,
+.contato ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.sobre ul li,
+.contato ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+}
+
+.sobre ul li::before,
+.contato ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border-radius: 50%;
+}
+
+/* Blockquote */
+blockquote {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-primary-light));
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+blockquote::before {
+  content: """;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 4rem;
+  font-family: var(--font-display);
+  color: var(--color-primary-light);
+  line-height: 1;
+}
+
+/* Divisor */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  margin: var(--spacing-xl) 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. PÁGINA DE CONTATO
+   -------------------------------------------------------------------------- */
+.info-contato {
+  background: var(--color-bg-card);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.info-contato h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.15rem;
+}
+
+.info-contato p {
+  margin-bottom: var(--spacing-sm);
+  font-size: 1rem;
+}
+
+.info-contato a {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   11. FAQ (PERGUNTAS FREQUENTES)
+   -------------------------------------------------------------------------- */
+.faq {
+  margin-top: var(--spacing-xl);
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.faq h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-item {
+  background: var(--color-bg-card);
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.faq-item h3 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.faq-item h3::before {
+  content: "?";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.faq-item p {
+  margin-bottom: 0;
+  font-size: 0.98rem;
+  padding-left: calc(28px + 0.75rem);
+}
+
+/* --------------------------------------------------------------------------
+   12. FOOTER (RODAPÉ)
+   -------------------------------------------------------------------------- */
+footer {
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-xl);
+  text-align: center;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+footer p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* Decoração no footer */
+footer::before {
+  content: "🌾";
+  display: block;
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   13. RESPONSIVIDADE
+   -------------------------------------------------------------------------- */
+
+/* Tablets e telas médias */
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+  }
+  
+  header .container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  nav ul li a {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+  }
+  
+  .hero {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .hero h2 {
+    font-size: 1.75rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .faq-item h3::before {
+    display: none;
+  }
+  
+  .faq-item p {
+    padding-left: 0;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  :root {
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  header h1 {
+    font-size: 1.15rem;
+  }
+  
+  header h1::before {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+  
+  .info-contato {
+    padding: var(--spacing-md);
+  }
+  
+  blockquote {
+    padding: var(--spacing-md);
+    font-size: 1rem;
+  }
+  
+  blockquote::before {
+    font-size: 3rem;
+    top: -5px;
+    left: 10px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. ANIMAÇÕES SUTIS
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .faq-item,
+  .btn,
+  nav ul li a,
+  .info-contato {
+    transition: all var(--transition-normal);
+  }
+  
+  /* Fade in suave para o conteúdo */
+  .sobre .container,
+  .contato .container,
+  .hero .container {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. MODO ESCURO (OPCIONAL - Respeita preferência do sistema)
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1a1d1a;
+    --color-bg-warm: #222522;
+    --color-bg-card: #252825;
+    --color-text: #e8e8e6;
+    --color-text-soft: #a8a8a6;
+    --color-text-muted: #6b6b69;
+    --color-border: #3a3d3a;
+    --color-border-soft: #2d302d;
+    --color-primary-light: rgba(74, 124, 89, 0.15);
+    --color-accent-soft: rgba(201, 169, 89, 0.1);
+  }
+  
+  header {
+    background: rgba(26, 29, 26, 0.92);
+  }
+  
+  .hero {
+    background: linear-gradient(
+      135deg,
+      var(--color-bg) 0%,
+      var(--color-bg-warm) 50%,
+      var(--color-bg) 100%
+    );
+  }
+  
+  blockquote {
+    background: var(--color-bg-card);
+  }
+}
